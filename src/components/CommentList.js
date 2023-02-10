@@ -12,7 +12,7 @@ export default function CommentList({ comments }) {
 
          comments.map((comment)=>{
 
-         return <Comment comment={comment} />})
+         return <Comment key={comment.id} comment={comment} />})
 
       }
     </ul>

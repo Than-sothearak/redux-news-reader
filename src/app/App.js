@@ -1,34 +1,20 @@
 import React from "react";
 import "./App.css";
-import ArticlePreviews from "../features/articlePreviews/ArticlePreviews";
-import CurrentArticle from "../features/currentArticle/CurrentArticle";
-import Comments from "../features/comments/Comments";
 import { Route, Routes } from "react-router-dom";
-import { Book } from "../page/Book";
+import ArticlePreviews from "../features/articlePreviews/ArticlePreviews";
+import Header from "../components/Header";
+import { Articles }from '../components/Articles';
+
 
 function App() {
   return (
     <>
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <div className="App">
-            <header className="App-header" />
-            <main>
-              <div className="current-article">
-                <CurrentArticle />
-                <Comments />
-              </div>
-              <ArticlePreviews />
-            </main>
-          </div>
-        }
-      />
-      <Route path="/books" element={<Book />}/>
-    </Routes>
+      <Header />
+      <Routes>
+        <Route path="/articles/:articlesId"element={<Articles />} />
+        <Route path="/articles" element={<ArticlePreviews />} />
+      </Routes>
     </>
-    
   );
 }
 
